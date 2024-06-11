@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_firebase/src/pages/home_page.dart';
-import 'package:project_firebase/src/pages/login.dart';
+import 'package:project_firebase/src/pages/home/home_page.dart';
+import 'package:project_firebase/src/pages/authentication/login.dart';
 import 'package:project_firebase/src/services/auth_service.dart';
 import 'package:project_firebase/src/widgets/auto_check.dart';
 import 'package:provider/provider.dart';
@@ -35,12 +35,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cripto Moedas',
+    return const MaterialApp(
+      title: 'EcoComunidade',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
       home: AuthCheck(),
     );
   }

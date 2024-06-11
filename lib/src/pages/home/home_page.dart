@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:project_firebase/src/services/auth_service.dart';
 import 'package:project_firebase/src/shared/theme/app_theme.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,15 +56,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           ListTile(
-            title: Text('Registar'),
+            title: const Text('Registar'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: Text('Resolver'),
-            onTap: () {
-              Navigator.pop(context);
+            title: const Text('Resolver'),
+            onTap: () async {
+              await context.read<AuthService>().logout();
             },
           ),
         ],

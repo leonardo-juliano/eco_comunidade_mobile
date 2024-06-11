@@ -7,7 +7,7 @@ class AuthException implements Exception {
 }
 
 class AuthService extends ChangeNotifier {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
   User? usuario;
   bool isLoading = true;
 
@@ -16,7 +16,7 @@ class AuthService extends ChangeNotifier {
   }
 
   _authCheck() {
-    _auth.authStateChanges().listen((User? user) {
+    auth.authStateChanges().listen((User? user) {
       usuario = (user == null) ? null : user;
       isLoading = false;
       notifyListeners();
@@ -24,13 +24,13 @@ class AuthService extends ChangeNotifier {
   }
 
   _getUser() {
-    usuario = _auth.currentUser;
+    usuario = auth.currentUser;
     notifyListeners();
   }
 
   registrar(String email, String senha) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: senha);
+      await auth.createUserWithEmailAndPassword(email: email, password: senha);
       _getUser();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -43,7 +43,7 @@ class AuthService extends ChangeNotifier {
 
   login(String email, String senha) async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: senha);
+      await auth.signInWithEmailAndPassword(email: email, password: senha);
       _getUser();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -55,7 +55,7 @@ class AuthService extends ChangeNotifier {
   }
 
   logout() async {
-    await _auth.signOut();
+    await auth.signOut();
     _getUser();
   }
 }

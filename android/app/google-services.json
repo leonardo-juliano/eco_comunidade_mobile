@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "677178690715",
+    "firebase_url": "https://eco-comunidade-default-rtdb.firebaseio.com",
+    "project_id": "eco-comunidade",
+    "storage_bucket": "eco-comunidade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677178690715:android:f9b1f195bc1d798b300a3e",
+        "android_client_info": {
+          "package_name": "com.br.ecocomunidade.eco_comunidade_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677178690715-2nv0rmhs6pcuroaeiuilp7j89v93mmfs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTrbEFznXpqDYPAQXN9ddEQ-uXaICpYwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677178690715-2nv0rmhs6pcuroaeiuilp7j89v93mmfs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

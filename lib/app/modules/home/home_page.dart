@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:project_firebase/src/services/auth_service.dart';
-import 'package:project_firebase/src/shared/theme/app_theme.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:project_firebase/app/services/auth_service.dart';
+import 'package:project_firebase/app/shared/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appTheme.primaryColor,
+        foregroundColor: appTheme.white,
       ),
       drawer: menu(),
       body: content(),
@@ -27,19 +26,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget content() {
-    return FlutterMap(
-        options: const MapOptions(
-          initialCenter: LatLng(-21.310431, -46.717279),
+    return Scaffold(
+        body: Column(children: [
+      Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: Container(
+          height: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: appTheme.inactiveBtn,
+          ),
         ),
-        children: [
-          TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'com.example.app'),
-        ]);
+      )
+    ]));
   }
 
   Drawer menu() {
     return Drawer(
+      shadowColor: appTheme.white,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[

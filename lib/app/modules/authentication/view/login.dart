@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project_firebase/src/services/auth_service.dart';
-import 'package:project_firebase/src/shared/theme/app_theme.dart';
-import 'package:project_firebase/src/shared/widgets/button.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:project_firebase/app/services/auth_service.dart';
+import 'package:project_firebase/app/shared/config/config.dart';
+import 'package:project_firebase/app/shared/theme/app_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:project_firebase/app/shared/widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -46,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
   login() async {
     setState(() => loading = true);
     try {
-      await context.read<AuthService>().login(email.text, senha.text);
+      await AuthService().login(email.text, senha.text);
     } on AuthException catch (e) {
       setState(() => loading = false);
       ScaffoldMessenger.of(context)
@@ -57,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
   registrar() async {
     setState(() => loading = true);
     try {
-      await context.read<AuthService>().registrar(email.text, senha.text);
+      await AuthService().registrar(email.text, senha.text);
     } on AuthException catch (e) {
       setState(() => loading = false);
       ScaffoldMessenger.of(context)
@@ -91,7 +93,9 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: InputDecoration(
                               hoverColor: appTheme.primaryColor,
                               border: OutlineInputBorder(
-                                borderSide: BorderSide(color: appTheme.primaryColor)
+                                borderSide:
+                                    BorderSide(color: appTheme.primaryColor),
+                                borderRadius: BorderRadius.circular(50),
                               ),
                               labelText: 'Email',
                             ),
@@ -110,8 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                           child: TextFormField(
                             controller: senha,
                             obscureText: true,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
                               labelText: 'Senha',
                             ),
                             validator: (value) {
@@ -136,7 +142,11 @@ class _LoginPageState extends State<LoginPage> {
                               color: appTheme.primaryColor),
                         ),
                         TextButton(
-                          onPressed: () => setFormAction(!isLogin),
+                          onPressed: () => (
+                            Modular.to.pushNamed(
+                              Constants.signUp,
+                            ),
+                          ),
                           child: Text(toggleButton,
                               style: TextStyle(
                                   fontSize: 16, color: appTheme.primaryColor)),

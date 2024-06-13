@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_firebase/myApp.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:project_firebase/src/services/auth_service.dart';
+import 'package:project_firebase/app/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

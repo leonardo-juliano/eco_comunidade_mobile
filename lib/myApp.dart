@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_firebase/src/pages/home/home_page.dart';
-import 'package:project_firebase/src/pages/authentication/login.dart';
-import 'package:project_firebase/src/services/auth_service.dart';
-import 'package:project_firebase/src/widgets/auto_check.dart';
+import 'package:project_firebase/app/modules/authentication/view/login.dart';
+import 'package:project_firebase/app/modules/home/home_page.dart';
+import 'package:project_firebase/app/services/auth_service.dart';
+import 'package:project_firebase/app/widgets/auto_check.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatefulWidget {

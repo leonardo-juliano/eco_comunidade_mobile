@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_firebase/src/shared/theme/app_theme.dart';
+import 'package:project_firebase/app/shared/theme/app_theme.dart';
 
 class Button extends StatelessWidget {
   Button({

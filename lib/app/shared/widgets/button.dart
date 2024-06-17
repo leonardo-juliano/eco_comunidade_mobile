@@ -7,8 +7,8 @@ class Button extends StatelessWidget {
     required this.text,
     required this.onPressed,
     required this.color,
-    this.padding = const EdgeInsets.symmetric(horizontal: 20
-    , vertical: 20),
+    this.padding = const EdgeInsets.symmetric(horizontal: 10
+    , vertical: 15),
   });
 
   final String text;

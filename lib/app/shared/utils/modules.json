@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Problemas Resolvidos",
+        "route": "/problems-resolved"
+    },
+    {
+        "name": "Não Resolvidos",
+        "route": "/problems-resolved"
+
+    },
+    {
+        "name": "Buscar Áreas Verdes",
+        "route": "/problems-resolved"
+    }, 
+    {
+        "name": "Meu Perfil",
+        "route": "/problems-resolved"
+    }
+]

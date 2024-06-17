@@ -2,45 +2,91 @@ import 'package:flutter/material.dart';
 import 'package:project_firebase/app/shared/theme/app_theme.dart';
 import 'package:project_firebase/app/shared/widgets/button.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignupPageState extends State<SignupPage> {
   AppTheme appTheme = AppTheme();
+  TextEditingController email = TextEditingController();
+  TextEditingController senha = TextEditingController();
+  TextEditingController nome = TextEditingController();
+
+  void createUser(String nome, String email, String senha) {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Form(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(labelText: 'Email'),
+        backgroundColor: appTheme.backgroundColor,
+        appBar: AppBar(
+          backgroundColor: appTheme.backgroundColor,
+        ),
+        body: Center(
+            child: Form(
+          child: Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Criar conta",
+                    style: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: -1.5)),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: TextFormField(
+                    controller: nome,
+                    decoration: InputDecoration(
+                      labelText: 'Nome',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
                   ),
-                  TextFormField(
-                    decoration: const InputDecoration(labelText: 'Senha'),
-                    style: TextStyle(color: appTheme.primaryColor),  
-
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: .0),
+                  child: TextFormField(
+                    controller: email,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
                   ),
-                  Button(
-                    text: 'Cadastrar',
-                    onPressed: () {},
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: TextFormField(
+                    controller: senha,
+                    decoration: InputDecoration(
+                      labelText: 'Senha',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Button(
+                    text: 'Cadastar',
+                    onPressed: () {
+                      createUser(nome.text, email.text, senha.text);
+                    },
                     color: appTheme.primaryColor,
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
-        ],
-      )
-    );
+        )));
   }
 }

@@ -1,8 +1,8 @@
 class User { 
-  final String? name;
-  final String? email;
-  final String? password;
-  final String? phone;
+  late final String? name;
+  late final String? email;
+  late final String? password;
+  late final String? phone;
 
 
   User({ this.name, this.email, this.password, this.phone});
@@ -15,6 +15,8 @@ class User {
       phone: json['phone'],
     );
   }
+
+  set senha(String? senha) {}
 
   Map<String, dynamic> toJson() {
     return {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:project_firebase/app/modules/authentication/view/signup_page.dart';
 import 'package:project_firebase/app/services/auth_service.dart';
-import 'package:project_firebase/app/shared/config/constants.dart';
 import 'package:project_firebase/app/shared/theme/app_theme.dart';
 import 'package:project_firebase/app/shared/widgets/button.dart';
 
